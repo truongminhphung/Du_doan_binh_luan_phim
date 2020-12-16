@@ -1,0 +1,164 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <link rel="stylesheet" href="../static/css/style.css">
+
+
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+</head>
+
+<body style="background-color: #081b27;">
+
+  <div class="badge badge-primary text-wrap" style="width: 20rem; font-size: 30px; padding-top: 15px;" >
+    {{ result }}
+    
+  </div>
+  <hr style="margin-top: 20px;">
+  <div class="container" >
+    <form action="{{ url_for('predict')}}" method="post">
+      <div class="header" >
+        <h1 style="color:white; background-color :#0c2738;width: 100%;height: 100px;margin-top: 0px;padding-top: 40px;">
+          Đánh Giá Bình Luận Phim</h1>
+      </div>
+
+      <section class="container1" style="margin-left: 130px;">
+
+        <div class="gallery">
+          <a target="_blank" href="#">
+            <img src="../static/img/pos1.jpg" alt="Trolltunga Norway" width="300" height="200">
+          </a>
+          <div class="desc">AVENTURE: ENDGAME</div>
+          <div class="desc">
+            <a class="button2" id="bl1" href="#" align="center" onclick="myFunction();" id="myBtn">Bình Luận</a>
+
+          </div>
+        </div>
+
+        <div class="gallery">
+          <a target="_blank" href="#">
+            <img src="../static/img/khoinguon.jpg" alt="Trolltunga Norway" width="300" height="200">
+          </a>
+          <div class="desc">THE KINGS MAN</div>
+          <div class="desc">
+            <a class="button2" href="#" align="center" onclick="myFunction();" id="myBtn">Bình Luận</a>
+          </div>
+        </div>
+
+        <div class="gallery">
+          <a target="_blank" href="#">
+            <img src="../static/img/aladin.jpg" alt="Trolltunga Norway" width="300" height="200">
+          </a>
+          <div class="desc">ALADIN & CÂY ĐÈN THẦN</div>
+          <div class="desc">
+            <a class="button2" href="#" align="center" onclick="myFunction();" id="myBtn">Bình Luận</a>
+          </div>
+        </div>
+
+        <div class="gallery">
+          <a target="_blank" href="#">
+            <img src="../static/img/bogia.jpg" alt="Trolltunga Norway" width="300" height="200">
+          </a>
+          <div class="desc">THE GODFATHER</div>
+          <div class="desc">
+            <a class="button2" href="#" align="center" onclick="myFunction();" id="myBtn " name="btn1">Bình Luận</a>
+          </div>
+        </div>
+        <div class="gallery">
+          <a target="_blank" href="#">
+            <img src="../static/img/phim4.jpg" alt="Trolltunga Norway" width="300" height="200">
+          </a>
+          <div class="desc">TENET</div>
+          <div class="desc">
+            <a class="button2" href="#" align="center" onclick="myFunction();" id="myBtn" name="btn1">Bình Luận</a>
+          </div>
+        </div>
+        <div class="gallery">
+          <a target="_blank" href="#">
+            <img src="../static/img/Forrest_gump.jpg" alt="Trolltunga Norway" width="300" height="200">
+          </a>
+          <div class="desc">FORREST GUMP</div>
+          <div class="desc">
+            <a class="button2" href="#" align="center" onclick="myFunction();" id="myBtn" name="btn1">Bình Luận</a>
+          </div>
+        </div>
+      </section>
+      <br><br><br>
+      
+    </form>
+
+    <br><br>
+
+  </div>
+  
+  
+  <!-- Modal -->
+  <div class="modal fade" id="myModal" role="dialog">
+    <div class="modal-dialog">
+
+      <form action="{{ url_for('predict') }}" method="post">
+      <!-- Modal content-->
+      <div class="modal-content">
+        <div class="modal-header">
+          <button type="button" class="close" data-dismiss="modal">&times;</button>
+          <h4 class="modal-title  ">NHẬP BÌNH LUẬN</h4>
+        </div>
+        <div class="modal-body">
+          <form class="form-horizontal" role="form">
+            <div class="form-group">
+
+
+            </div>
+            <div class="form-group">
+              <div id="thongbao" class="text-danger" style="text-align:center"></div>
+            </div>
+            <div class="form-group">
+
+              <div class="col-md-9">
+                <textarea name="review" id="rview" cols="70" rows="10"></textarea>
+
+              </div>
+            </div>
+            
+          </form>
+        </div>
+        <div class="modal-footer">
+          
+          
+          <button type="submit" onclick="showResult()" class="btn btn-success btn-block">Đánh Giá</button>
+          
+        </div>
+      </div>
+      </form>
+
+    </div>
+   
+  </div>
+  
+
+  <script>
+    function myFunction() {
+      $("#myModal").modal();
+      return true;
+    }
+
+  </script>
+  
+  <script>
+    $(document).ready(function () {
+      $("#myBtn").click(function () {
+        $("#myModal").modal();
+        
+      });
+    });
+
+  </script>
+     
+</body>
+
+</html>
