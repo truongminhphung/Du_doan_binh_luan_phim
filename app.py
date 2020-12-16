@@ -15,6 +15,9 @@ from tensorflow.keras.preprocessing.sequence import pad_sequences
 from tensorflow.keras.models import Sequential
 from tensorflow.keras.preprocessing.text import one_hot
 
+nltk.download('stopwords')
+nltk.download('wordnet')
+
 app = Flask(__name__)
 model = load_model('my_model.h5')
 lemmatizer = WordNetLemmatizer()
